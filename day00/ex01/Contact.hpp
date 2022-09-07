@@ -2,6 +2,8 @@
 # define CONTACT
 
 # include <iostream>
+# include <string> //del
+# include <iomanip>
 
 class Contact {
 private:

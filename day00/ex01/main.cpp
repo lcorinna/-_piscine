@@ -31,31 +31,38 @@ void	add_new_contact(Phone_book *pocket) {
 }
 
 void search_contact(Phone_book *pocket) {
-	(void) pocket;
 	std::cout << " __________ __________ __________ __________ " << std::endl;
-	std::cout << "|   Index  |    Name  | Last Name| Nickname |" << std::endl;
+	std::cout << "|Index     |Name      |Last Name |Nickname  |" << std::endl;
 	for (int i = 0; i != 7; ++i) {
 		if (pocket->getContact()[i].getFirstName() != "") {
 			std::cout << " __________ __________ __________ __________ " << std::endl;
 			std::cout << "|";
-			std::cout.width(10);
-			std::cout << (i + 1);
-			std::cout.width(10);
-			std::cout << pocket->getContact()[i].getFirstName();
-			std::cout.width(10);
-			std::cout << pocket->getContact()[i].getLastName();
-			std::cout.width(10);
-			std::cout << pocket->getContact()[i].getNickname();
-			std::cout << "|" << std::endl;
+
+			std::cout << std::setw(10) << std::left << (i + 1) << "|";
+
+			if (pocket->getContact()[i].getFirstName().length() >= 10) {
+				for (int j = 0; pocket->getContact()[i].getFirstName())
+			}
+				std::cout << std::setw(10) << pocket->getContact()[i].getFirstName().substr(0, 9) << "." << std::left<< "|";
+			else
+				std::cout << std::setw(10) << std::left << pocket->getContact()[i].getFirstName() << "|";
+
+			if (pocket->getContact()[i].getLastName().length() >= 10)
+				std::cout << std::setw(9) << std::left << pocket->getContact()[i].getLastName().substr(0, 8) << "." << "|";
+			else
+				std::cout << std::setw(10) << std::left << pocket->getContact()[i].getLastName() << "|";
+			
+			if (pocket->getContact()[i].getLastName().length() >= 10)
+				std::cout << std::setw(9) << std::left << pocket->getContact()[i].getNickname().substr(0, 8) << "." << "|";
+			else
+				std::cout << std::setw(10) << std::left << pocket->getContact()[i].getNickname() << "|";
+
+			std::cout << std::endl;
 		}
 	}
 	std::cout << " __________ __________ __________ __________ " << std::endl << std::endl;
 
-} 
-
-// Each column must be 10 characters wide. A pipe character (’|’) separates them. 
-// The text must be right-aligned. 
-// If the text is longer than the column, it must be truncated and the last displayable character must be replaced by a dot (’.’).
+}
 
 int	main(void) {
 	Phone_book	pocket;
