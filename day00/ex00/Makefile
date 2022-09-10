@@ -9,10 +9,10 @@ CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98
 all:				$(NAME_MEGAFON)
 
 $(NAME_MEGAFON):	$(OBJ_MEGAFON)
-	g++ $(CPPFLAGS) $(OBJ_MEGAFON) -o $@
+	c++ $(CPPFLAGS) $(OBJ_MEGAFON) -o $@
 
 %.o:				%.cpp Makefile
-	g++ $(CPPFLAGS) -c $< -o $@	
+	c++ $(CPPFLAGS) -c $< -o $@	
 
 clean:
 	rm -f $(OBJ_MEGAFON)

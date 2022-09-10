@@ -19,22 +19,29 @@
 // }
 
 
-int power(int x, unsigned p) {
-    int answer;
+// int power(int x, unsigned p) {
+//     int answer;
 
-    if (p == 0)
-        return 1;
-    answer = x;
-    while (p > 1) {
-        answer *= x;
-        p--;
-    }
-    return answer;
-}
+//     if (p == 0)
+//         return 1;
+//     answer = x;
+//     while (p > 1) {
+//         answer *= x;
+//         p--;
+//     }
+//     return answer;
+// }
 
-int main() {
-	int i = 0;
-	i =  power(-2, 4);
-	std::cout << i << '\n';
+// int main() {
+// 	int i = 0;
+// 	i =  power(-2, 4);
+// 	std::cout << i << '\n';
+// 	return 0;
+// }
+
+int	main() {
+	int	x, y, z;
+	x = y = z = 34;
+	std::cout << x << y << z << "\n";
 	return 0;
 }
