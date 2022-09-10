@@ -1,4 +1,5 @@
 #include "Phone_book.hpp"
+
 void	add_new_contact(Phone_book *pocket) {
 	static int	i = 0;
 	std::string	input;
@@ -36,21 +37,21 @@ void	printing_contacts(Phone_book *pocket) {
 
 			if (pocket->getContact()[i].getFirstName().size() > 9)
 				std::cout << std::setw(9) << std::right << \
-				pocket->getContact()[i].getFirstName().substr(0, 8) << "." << "|";
+				pocket->getContact()[i].getFirstName().substr(0, 9) << "." << "|";
 			else
 				std::cout << std::setw(10) << std::right << \
 				pocket->getContact()[i].getFirstName() << "|";
 
 			if (pocket->getContact()[i].getLastName().size() > 9)
 				std::cout << std::setw(9) << std::right << \
-				pocket->getContact()[i].getLastName().substr(0, 8) << "." << "|";
+				pocket->getContact()[i].getLastName().substr(0, 9) << "." << "|";
 			else
 				std::cout << std::setw(10) << std::right << \
 				pocket->getContact()[i].getLastName() << "|";
 			
 			if (pocket->getContact()[i].getNickname().size() > 9)
 				std::cout << std::setw(9) << std::right << \
-				pocket->getContact()[i].getNickname().substr(0, 8) << "." << "|";
+				pocket->getContact()[i].getNickname().substr(0, 9) << "." << "|";
 			else
 				std::cout << std::setw(10) << std::right << \
 				pocket->getContact()[i].getNickname() << "|";
@@ -98,8 +99,8 @@ int	main(void) {
 
 	std::cout << "What do you want, master? \
 To manage, use the commands \"ADD\", \"SEARCH\" or \"EXIT\"." << std::endl;
-	std::cin >> command;
 	while (true) {
+		std::cin >> command;
 		if (command == "ADD")
 			add_new_contact(&pocket);
 		else if (command == "SEARCH")
@@ -107,7 +108,6 @@ To manage, use the commands \"ADD\", \"SEARCH\" or \"EXIT\"." << std::endl;
 		else if (command == "EXIT" || command.empty())
 			return 0;
 		std::cout << "To manage, use the commands \"ADD\", \"SEARCH\" or \"EXIT\"." << std::endl;
-		std::cin >> command;
 	}
 	return 0;
 }
