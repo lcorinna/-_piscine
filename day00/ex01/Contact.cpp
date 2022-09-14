@@ -1,18 +1,16 @@
 #include "Contact.hpp"
 
-Contact::Contact(void) {
-	firstName = "";
-}
+Contact::Contact(void) {}
 
 Contact::~Contact() {}
 
-std::string	Contact::getFirstName() { return firstName; }
-std::string	Contact::getLastName() { return lastName; }
-std::string	Contact::getNickname() { return nickname; }
-std::string	Contact::getPhoneNumber() { return phoneNumber; }
-std::string	Contact::getDarkestSecret() { return darkestSecret; }
-void	Contact::setFirstName(std::string First_Name) { firstName = First_Name; }
-void	Contact::setLastName(std::string Last_Name) { lastName = Last_Name; }
-void	Contact::setNickname(std::string Nickname) { nickname = Nickname; }
-void	Contact::setPhoneNumber(std::string Phone_Number) { phoneNumber = Phone_Number; }
-void	Contact::setDarkestSecret(std::string Darkest_Secret) { darkestSecret = Darkest_Secret; }
+std::string	Contact::getFirstName() { return _firstName; }
+std::string	Contact::getLastName() { return _lastName; }
+std::string	Contact::getNickname() { return _nickname; }
+std::string	Contact::getPhoneNumber() { return _phoneNumber; }
+std::string	Contact::getDarkestSecret() { return _darkestSecret; }
+void	Contact::setFirstName(std::string First_Name) { _firstName = First_Name; }
+void	Contact::setLastName(std::string Last_Name) { _lastName = Last_Name; }
+void	Contact::setNickname(std::string Nickname) { _nickname = Nickname; }
+void	Contact::setPhoneNumber(std::string Phone_Number) { _phoneNumber = Phone_Number; }
+void	Contact::setDarkestSecret(std::string Darkest_Secret) { _darkestSecret = Darkest_Secret; }

@@ -76,7 +76,7 @@ void	contact_search(Phone_book *pocket, int i) {
 void search_contact(Phone_book *pocket) {
 	std::cout << " __________ __________ __________ __________ " << std::endl;
 	std::cout << "|Index     |Name      |Last Name |Nickname  |" << std::endl;
-	if (pocket->getContact()[0].getFirstName() != "")
+	if (!pocket->getContact()[0].getFirstName().empty())
 			printing_contacts(pocket);
 	std::cout << " __________ __________ __________ __________ " << std::endl << std::endl;
 	char	i;

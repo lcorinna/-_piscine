@@ -1,3 +1,6 @@
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+
 int	main(void) {
 	{
 		Weapon club = Weapon("crude spiked clud");
@@ -7,6 +10,7 @@ int	main(void) {
 		club.setType("some other type of club");
 		bob.attack();
 	}
+	printf("\n\n"); //del
 	{
 		Weapon club = Weapon("crude spiked club");
 
