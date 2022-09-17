@@ -1,6 +1,17 @@
 #include "Harl.hpp"
 
-Harl::Harl() {}
+Harl::Harl() {
+	array_func[0] = &Harl::debug;
+	array_func[1] = &Harl::info;
+	array_func[2] = &Harl::warning;
+	array_func[3] = &Harl::error;
+	array_func[4] = &Harl::invalid_level;
+	levels[0] = "debug";
+	levels[1] = "info";
+	levels[2] = "warning";
+	levels[3] = "error";
+	levels[4] = "invalid level";
+}
 
 Harl::~Harl() {}
 
@@ -25,13 +36,15 @@ void	Harl::error(void) {
 	std::cout << std::endl;
 }
 
+void	Harl::invalid_level(void) {
+	std::cout << "Invalid level" << std::endl;
+}
+
 void	Harl::complain(std::string level) {
-	// &Harl.level();
-	// Harl*	ptr[4];// = (&debug, &info, &warning, &error);
-	// ptr[0] = &debug;
-	// ptr[1].l
-	debug();
-	// int	i;
-	// i = level.length();
-	// while (i != )
+	int index = 0;
+	while (index < 4 && level != levels[index]) {
+		++index;
+	}
+	(this->*array_func[index])();
+
 }

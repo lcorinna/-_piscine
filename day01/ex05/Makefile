@@ -1,25 +1,25 @@
-NAME_SHOOTOUT		=	shootout
+NAME_LEVEL			=	level
 
-SHOOTOUT			=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+LEVEL				=	main.cpp Harl.cpp
 
-OBJ_SHOOTOUT		=	$(SHOOTOUT:.cpp=.o)
+OBJ_LEVEL			=	$(LEVEL:.cpp=.o)
 
 CPPFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
-all:				$(NAME_SHOOTOUT)
+all:			$(NAME_LEVEL)
 
-$(NAME_SHOOTOUT):	$(OBJ_SHOOTOUT)
-	c++ $(CPPFLAGS) $(OBJ_SHOOTOUT) -o $@
+$(NAME_LEVEL):	$(OBJ_LEVEL)
+	c++ $(CPPFLAGS) $(OBJ_LEVEL) -o $@
 
-%.o:				%.cpp %.hpp Makefile
+%.o:			%.cpp %.hpp Makefile
 	c++ $(CPPFLAGS) -c $< -o $@	
 
 clean:
-	rm -f $(OBJ_SHOOTOUT)
+	rm -f $(OBJ_LEVEL)
 
-fclean:				clean
-	rm -f $(NAME_SHOOTOUT)
+fclean:			clean
+	rm -f $(NAME_LEVEL)
 
-re:					fclean all
+re:				fclean all
 
 .PHONY: all clean fclean re
