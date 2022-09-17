@@ -1,7 +1,6 @@
 {
 	"files.associations": {
-		"iosfwd": "cpp",
-		"istream": "cpp",
+		"climits": "cpp",
 		"__bit_reference": "cpp",
 		"__bits": "cpp",
 		"__config": "cpp",
@@ -47,7 +46,9 @@
 		"initializer_list": "cpp",
 		"iomanip": "cpp",
 		"ios": "cpp",
+		"iosfwd": "cpp",
 		"iostream": "cpp",
+		"istream": "cpp",
 		"iterator": "cpp",
 		"limits": "cpp",
 		"locale": "cpp",
@@ -80,7 +81,6 @@
 		"memory_resource": "cpp",
 		"ranges": "cpp",
 		"stop_token": "cpp",
-		"cinttypes": "cpp",
-		"filesystem": "cpp"
+		"cinttypes": "cpp"
 	}
 }

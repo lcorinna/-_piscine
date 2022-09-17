@@ -21,42 +21,28 @@ bool	opening_files(char *filename, std::ifstream& fin, std::fstream& fout)
 	return true;
 }
 
-void	writing_to_file(std::ifstream& fin, std::fstream& fout, \
-								std::string strtofind, std::string strtoreplace)
-{
+void	replace(std::ifstream& fin, std::fstream& fout, \
+							std::string strtofind, std::string strtoreplace) {
 	std::string	tmp;
-	std::string	ans;
-	ans = "";
+	std::string	tmp1 = "";
 	while (!fin.eof()) {
-		tmp = "";
-		if (!ans.empty())
-			fout << std::endl;
-		ans = "";
 		std::getline(fin, tmp);
-		if (tmp.length() == 0)
-			fout << std::endl;
-		for (int i = 0; i < (int)tmp.length(); i++) {
-			int k = 0;
-			if (tmp[i] == strtofind[k] && i + (int)strtofind.length() <= (int)tmp.length()) {
-				int j;
-				for (j = i; j < i + (int)strtofind.length(); j++) {
-					if (tmp[j] != strtofind[k])
-						break;
-					else
-						k = k + 1;
-				}
-				if (j == i + (int)strtofind.length()) {
-					ans.append(strtoreplace);
-					i = j - 1;
-				} else
-					ans.push_back(tmp[i]);
-			} else
-				ans.push_back(tmp[i]);
-		}
-		fout << ans;
+		if (tmp1.empty())
+			tmp1 = tmp1 + tmp;
+		else
+			tmp1 = tmp1 + "\n" + tmp;
 	}
+	std::size_t	i = 0;
+	std::size_t place = 0;
+	place = tmp1.find(strtofind, i);
+	while (place != ULLONG_MAX) {
+		fout << tmp1.substr(i, place - i);
+		fout << strtoreplace;
+		i = place + strtofind.length();
+		place = tmp1.find(strtofind, i);
+	}
+	fout << tmp1.substr(i, place - i);
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -70,7 +56,7 @@ int	main(int argc, char **argv)
 	std::fstream fout;
 	if (!opening_files(argv[1], fin, fout))
 		return 1;
-	writing_to_file(fin, fout, (std::string)argv[2], (std::string)argv[3]);
+	replace(fin, fout, (std::string)argv[2], (std::string)argv[3]);
 	fin.close();
 	fout.close();
 	return 0;
