@@ -10,14 +10,16 @@ private:
 public:
 	Fixed();
 	Fixed(int converted);
-	// Fixed(float converted);
+	Fixed(float converted);
 	Fixed(const Fixed &other);
-	Fixed&	operator=(const Fixed &other);
 	~Fixed();
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
-	// float	toFloat( void ) const;
-	// int		toInt( void ) const;
-} ;
+	Fixed&	operator=(const Fixed &other);
+	float	toFloat( void ) const;
+	int		toInt( void ) const;
+} ; 
+
+std::ostream&	operator<<(std::ostream& flow, const Fixed& other);
 
 #endif

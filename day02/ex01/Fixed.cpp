@@ -6,24 +6,22 @@ Fixed::Fixed() {
 }
 
 Fixed::Fixed(int converted) {
-	std::cout << "Int constructor called" << this << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 	_raw_bits = converted << _fractional;
 }
 
-
-Fixed::Fixed(const Fixed &other) {
-	std::cout << "Copy constructor called	" << this << std::endl;
-	this->_raw_bits = other._raw_bits;
+Fixed::Fixed(float converted) {
+	std::cout << "Float constructor called" << std::endl;
+	_raw_bits = converted * (2 * 2 * 2 * 2 * 2 * 2 * 2 * 2);
 }
 
-Fixed&	Fixed::operator=(const Fixed &other) {
-	std::cout << "Copy assignment operator called" << std::endl;
+Fixed::Fixed(const Fixed &other) {
+	std::cout << "Copy constructor called" << std::endl;
 	this->_raw_bits = other._raw_bits;
-	return *this;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called	" << this << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const { 
@@ -33,14 +31,21 @@ int	Fixed::getRawBits(void) const {
 
 void	Fixed::setRawBits(int const raw) { _raw_bits = raw; }
 
-// raw << 8
+Fixed&	Fixed::operator=(const Fixed &other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_raw_bits = other._raw_bits;
+	return *this;
+}
 
-// Fixed	Fixed::operator+(const Fixed &two) {
-// 	Fixed	new_elem;
-// 	// Fixed	*new_elem;
+std::ostream&	operator<<(std::ostream& flow, const Fixed& other) {
+	flow << other.toFloat();
+	return flow;
+}
 
-// 	// new_elem = new Fixed;
+int	Fixed::toInt(void) const {
+	return (_raw_bits >> _fractional);
+}
 
-// 	new_elem._integer = this->_integer + two._integer;
-// 	return new_elem;
-// }
+float	Fixed::toFloat(void) const {
+	return ((float)_raw_bits / (2 * 2 * 2 * 2 * 2 * 2 * 2 * 2));
+}
