@@ -1,6 +1,6 @@
-NAME_CLAPTRAP	=	clapTrap
+NAME_CLAPTRAP	=	ScavTrap
 
-CLAPTRAP		=	main.cpp ClapTrap.cpp
+CLAPTRAP		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_CLAPTRAP	=	$(CLAPTRAP:.cpp=.o)
 

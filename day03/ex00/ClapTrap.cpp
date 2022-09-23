@@ -60,11 +60,11 @@ void	ClapTrap::attack(const std::string& target) {
 		_energy_points--;
 	}
 	else
-		std::cout << "There are not enough forces for this action" << std::endl;
+		std::cout << this->_name << " does not have enough resources for the attack action" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (_energy_points > 0 && _hit_points > 0) {
+	if (_hit_points > 0) {
 		std::cout << "ClapTrap " << _name << " takes damage in the amount of ";
 		std::cout  << amount << std::endl;
 		if (_hit_points > 0){
@@ -75,7 +75,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		}
 	}
 	else
-		std::cout << "There are not enough forces for this action" << std::endl;
+		std::cout << this->_name << " is already dead and can no longer take damage" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
@@ -85,6 +85,5 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		_energy_points--;
 	}
 	else
-		std::cout << "There are not enough forces for this action" << std::endl;
-
+		std::cout << this->_name << " does not have enough resources for this action" << std::endl;
 }
