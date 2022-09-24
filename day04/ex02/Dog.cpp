@@ -3,6 +3,7 @@
 Dog::Dog() {
 	std::cout << "Default constructor Dog called" << std::endl;
 	_type = "Dog";
+	_mind = new Brain;
 }
 
 Dog::Dog(const Dog &other) {
@@ -18,6 +19,7 @@ Dog&	Dog::operator=(const Dog &other) {
 
 Dog::~Dog() {
 	std::cout << "Destructor Dog called" << std::endl;
+	delete _mind;
 }
 
 void	Dog::makeSound(void) const {

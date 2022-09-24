@@ -1,9 +1,14 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Dog : public Animal {
+class Brain;
+
+class Dog : public AAnimal {
+private:
+	Brain*	_mind;
 public:
 	Dog();
 	Dog(const Dog &other);

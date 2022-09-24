@@ -1,6 +1,6 @@
 NAME_ANIMAL	=	Animal
 
-ANIMAL		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+ANIMAL		=	main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJ_ANIMAL	=	$(ANIMAL:.cpp=.o)
 
