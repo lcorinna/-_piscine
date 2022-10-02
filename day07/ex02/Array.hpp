@@ -15,31 +15,32 @@ private:
 	unsigned int	_size;
 public:
 	Array<Type>() : _DynamicArray(NULL), _size(0) {
-		std::cout << "Zero constructor" << std::endl;
+		std::cout << "Default constructor Array called" << std::endl;
 	};
 	Array<Type>(unsigned int n) {
-		std::cout << "Size constructor" << std::endl;
+		std::cout << "Custom constructor Array called" << std::endl;
 		if (n == 0)
 			_DynamicArray = NULL;
 		else
 			this->_DynamicArray = new Type[n]();
 		this->_size = n;
 	};
-	Array<Type>(const Array<Type> &obj) {
-		std::cout << "Copy constructor called" << std::endl;
-		_size = obj._size;
+	Array<Type>(const Array<Type> &other) {
+		std::cout << "Copy constructor Array called" << std::endl;
+		_size = other._size;
 		_DynamicArray = new Type[_size];
 		for (unsigned int i = 0; i < _size; ++i)
-			this->_DynamicArray[i] = obj._DynamicArray[i];
+			this->_DynamicArray[i] = other._DynamicArray[i];
 	};
-	Array<Type> &operator=(const Array<Type> &obj) {
+	Array<Type>&	operator=(const Array<Type> &other) {
 		std::cout << "Copy assignment operator Array called" << std::endl;
-		this->_size = obj.size();
+		this->_size = other.size();
 		for (unsigned int i = 0; i < this->_size; i++)
-			this->_DynamicArray[i] = obj[i];
+			this->_DynamicArray[i] = other[i];
 		return *this;
 	};
 	~Array<Type>() {
+		std::cout << "Destructor Array called" << std::endl;
 		if (this->_DynamicArray)
 			delete [](this->_DynamicArray);
 	};
