@@ -16,7 +16,7 @@ Dog::Dog(const Dog &other) {
 }
 
 Dog&	Dog::operator=(const Dog &other) {
-	std::cout << "Copy assignment operator Dog called" << std::endl;
+	std::cout << "c" << std::endl;
 	this->_type = other._type;
 	for (int i = 0; i < 100; ++i) {
 		this->_mind[i] = other._mind[i];
