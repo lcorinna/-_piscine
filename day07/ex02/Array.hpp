@@ -34,7 +34,10 @@ public:
 	};
 	Array<Type>&	operator=(const Array<Type> &other) {
 		std::cout << "Copy assignment operator Array called" << std::endl;
+		if (this->_DynamicArray != NULL)
+			delete [](this->_DynamicArray);
 		this->_size = other.size();
+		this->_DynamicArray = new Type [this->_size];
 		for (unsigned int i = 0; i < this->_size; i++)
 			this->_DynamicArray[i] = other[i];
 		return *this;
