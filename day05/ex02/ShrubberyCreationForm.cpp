@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 void	ShrubberyCreationForm::executer(const Bureaucrat& chel) const {
-    std::fstream file;
+    std::ofstream file;
 	
 	try {
 		if (this->getSignet() == false)
