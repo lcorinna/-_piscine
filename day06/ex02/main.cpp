@@ -61,5 +61,9 @@ int	main(void) {
 	identify(rand2);
 	identify(*rand2);
 
+
+	delete rand;
+	delete rand1;
+	delete rand2;
 	return 0;
 }

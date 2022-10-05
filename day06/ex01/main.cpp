@@ -23,7 +23,7 @@ int	main(void) {
 	elem1.age = 48;
 	elem1.name = "Gor";
 
-	uintptr_t tmp = serialize(&elem1);
+	uintptr_t	tmp = serialize(&elem1);
 
 	Data	*elem2;
 	elem2 = deserialize(tmp);
@@ -34,4 +34,5 @@ int	main(void) {
 	return 0;
 }
 
+// Сериализация - процесс перевода структуры данных в битовую последовательность.
 // reinterpret_cast, для приведения между несвязанными типами, такими как тип указателя и int
