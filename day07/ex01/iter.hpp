@@ -4,12 +4,12 @@
 #include <iostream>
 
 template<class Type>
-void	func(Type &a) {
+void	func(const Type &a) {
 	std::cout << a << std::endl;
 }
 
 template<class Type>
-void	iter(Type* a,  size_t b, void (*f)(Type &)) {
+void	iter(Type* a,  size_t b, void f(const Type &)) {
 	for (size_t i = 0; i < b; ++i) {
 		f(a[i]);
 	}
