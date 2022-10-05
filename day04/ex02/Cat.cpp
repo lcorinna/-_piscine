@@ -15,7 +15,7 @@ Cat::Cat(const Cat &other) {
 	}
 }
 
-Cat&	Cat::operator=(const Cat &other) {
+Cat&	Cat:: (const Cat &other) {
 	std::cout << "Copy assignment operator Cat called" << std::endl;
 	this->_type = other._type;
 	for (int i = 0; i < 100; ++i){

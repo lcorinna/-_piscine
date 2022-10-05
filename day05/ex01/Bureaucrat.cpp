@@ -61,6 +61,17 @@ void		Bureaucrat::setGrade(int grade) {
 	_grade = grade;
 }
 
+void	Bureaucrat::signForm(Form &form) {
+	if (form.getGradeSignet() < this->getGrade())
+		std::cout << "Bureaucrat " << this->getName() << " is too low level to sign the form " << form.getName() << std::endl;
+	else {
+		if (!form.getSignet()) {
+			form.beSigned(*this);
+		} else
+			std::cout << "Form " << form.getName() << " has already been signed" << std::endl;
+	}
+}
+
 std::ostream&	operator<<(std::ostream &ost, const Bureaucrat &other)
 {
 	ost << other.getName() << " Bureaucrat grade: " << other.getGrade() << std::endl;

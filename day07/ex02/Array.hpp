@@ -55,7 +55,7 @@ public:
 	}
 
 	int	size() const {
-		return this->_size;
+		return this->_size;	
 	};
 };
 

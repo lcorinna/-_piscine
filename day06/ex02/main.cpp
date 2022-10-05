@@ -49,9 +49,11 @@ int	main(void) {
 
 	Base*	rand = generate();
 	identify(rand);
+	identify(*rand);
 	std::cout << std::endl;
 
 	Base*	rand1 = generate();
+	identify(rand1);
 	identify(*rand1);
 	std::cout << std::endl;
 

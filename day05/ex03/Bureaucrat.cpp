@@ -61,8 +61,28 @@ void		Bureaucrat::setGrade(int grade) {
 	_grade = grade;
 }
 
+void	Bureaucrat::signForm(AForm &form) {
+	if (form.getGradeSignet() < this->getGrade())
+		std::cout << "Bureaucrat " << this->getName() << " is too low level to sign the form " << form.getName() << std::endl;
+	else {
+		if (!form.getSignet()) {
+			form.beSigned(*this);
+		} else
+			std::cout << "Form " << form.getName() << " has already been signed" << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm& form) {
+	try {
+		form.executer(*this);
+		std::cout << *this << " executed " << form;
+	} catch(const std::exception& e) {
+		std::cerr << *this << " couldn't execute " << form << ", because " << this->_name << " has " << e.what() << std::endl;
+	}
+}
+
 std::ostream&	operator<<(std::ostream &ost, const Bureaucrat &other)
 {
-	ost << other.getName() << " Bureaucrat grade: " << other.getGrade() << std::endl;
+	ost << other.getName() << " Bureaucrat grade: " << other.getGrade();
 	return ost;
 }

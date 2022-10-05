@@ -2,6 +2,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 private:
@@ -21,9 +24,11 @@ public:
 	int					getGrade() const;
 	void				setGrade(int grade);
 
+	void	signForm(Form &form);
+
 	class GradeTooHighException : public std::exception {
 		public:
-			virtual const char*	what() const throw() {
+			virtual const char* what() const throw() {
 				return ("A bureaucrat cannot have a level higher than 1");
 			}
 	} ;
