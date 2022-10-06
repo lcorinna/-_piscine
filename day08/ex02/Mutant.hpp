@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <stack>
+# include <iterator>
 
 template <typename Type>
 class MutantStack: public std::stack<Type> {
@@ -18,9 +19,11 @@ public:
 	~MutantStack<Type>() {};
 
 	typedef typename std::stack<Type>::container_type::iterator	iterator;
+	
 	iterator	begin() { 
 		return this->c.begin();
 	};
+
 	iterator	end() {
 		return std::stack<Type>::c.end();
 	};

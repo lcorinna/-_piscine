@@ -13,6 +13,7 @@ Span::Span(int n) {
 Span::Span(const Span& other) {
 	std::cout << "Copy constructor Span called" << std::endl;
 	_N = other._N;
+	_array = other._array;
 }
 
 Span&	Span::operator=(const Span& other) {
@@ -27,54 +28,62 @@ Span::~Span() {
 }
 
 void	Span::addNumber(unsigned int i) {
-	if (_array.size() == _N)
-		throw std::range_error("There's no more room");
-	this->_array.push_back(i);
+	try {
+		if (_array.size() == _N)
+			throw std::range_error("There's no more room");
+		this->_array.push_back(i);
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}	
 }
 
 int	Span::shortestSpan() {
-	if (_array.size() < 2)
-		throw std::logic_error("The number of elements is not enough for the operation shortestSpan");
+	try {
+		if (_array.size() < 2)
+			throw Span::UnableFindSpan();
+		int	min = INT_MAX;
+		int tmp;
 
-	int	min = INT_MAX;
-    int tmp;
-
-    std::sort(_array.begin(), _array.end());
-	for (unsigned int i = 0; i < _array.size() - 1; ++i)
-    {
-        tmp = _array[i + 1] - _array[i];
-        if (tmp < min)
-            min = tmp;
-    }
-	return min;
+		std::sort(_array.begin(), _array.end());
+		for (unsigned int i = 0; i < _array.size() - 1; ++i)
+		{
+			tmp = _array[i + 1] - _array[i];
+			if (tmp < min)
+				min = tmp;
+		}
+		return min;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	return 2147483647;
 }
 
 int	Span::longestSpan() {
-	if (_array.size() < 2)
-		throw std::logic_error("The number of elements is not enough for the operation longestSpan");
-	
-	int	max = this->_array[0];
-	int	min = max;
-	int	size = this->_array.size();
+	try {
+		if (_array.size() < 2)
+			throw Span::UnableFindSpan();
+		int min;
+		int max;
 
-	for (int i = 0; i < size - 1; ++i) {
-		if (this->_array[i] > max)
-			max = this->_array[i];
+		min = *min_element(_array.begin(), _array.end());
+		max = *max_element(_array.begin(), _array.end());
+		return max - min;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
-	for (int i = 0; i < size - 1; ++i) {
-		if(this->_array[i] < min)
-			min = this->_array[i];
-	}
-	max = max - min;
-	return max;
+	return 0;
 }
 
 void	Span::addMultipleNumbers(unsigned int i){
-	if (i > _N)
-		throw std::logic_error("The operation \"addMultipleNumbers\" cannot be performed");
-	srand(time(NULL));
-	while (i-- > 0)
-		addNumber(rand());
+	try {
+		if (i > _N)
+			throw std::logic_error("The operation \"addMultipleNumbers\" cannot be performed");
+		srand(time(NULL));
+		while (i-- > 0)
+			addNumber(rand());
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 unsigned int	Span::getN(){
